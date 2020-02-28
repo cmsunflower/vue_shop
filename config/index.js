@@ -12,7 +12,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       // '/api':{
-      //   target:'https://www.liulongbin.top:8888',
+      //   target:'https://127.0.0.1:8888',
       //   changeOrigin:true,
       //   pathRewrite:{
       //     '^/api':''
