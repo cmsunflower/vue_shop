@@ -3,6 +3,8 @@ import Router from 'vue-router'
 
 import Login from '@/components/Login'
 import Home from '@/components/Home'
+import Welcome from '@/components/Welcome'
+import Users from '@/components/User/Users'
 
 
 Vue.use(Router)
@@ -11,7 +13,19 @@ const router= new Router({
   routes: [
     {path:'/',redirect:'/login'},
     {path:'/login',name:'Login',component:Login},
-    {path:'/home',name:'Home',component:Home}
+    {path:'/home',name:'Home',component:Home,redirect:'/welcome',children:[
+      {
+        path:'/welcome',
+        name:'Welcome',
+        component:Welcome
+      },
+      {
+        path:'/users',
+        name:'Users',
+        component:Users
+      }
+    ]},
+
   ]
 })
 //挂载路由守卫
@@ -21,6 +35,7 @@ const router= new Router({
 router.beforeEach((to,from,next)=>{
   //next() 放行 next('/login) 强制跳转
   if(to.path === '/login') return next();
+  //从sessionStorage中获取值token值
   const tokenStr=window.sessionStorage.getItem('token');
   if(!tokenStr) return next('/login');
   next();

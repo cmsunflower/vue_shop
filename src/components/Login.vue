@@ -77,12 +77,12 @@ export default {
                 //解构 从数组和对象中取值，将获取到的值赋给指定变量 其中data必须是promise对象中的属性，然后将值返回到data上
                 //axios支持promisesAPI 
                 const {data:res}= await this.$http.post('login',this.loginForm);
-                console.log(res);
+                // console.log(res);
                 //使用element-ui中的消息弹框 
-                if(res.meta.status !== 200) return this.$message.error('登录失败');
+                if(res.meta.status !== 200) return this.$message.error('登录失败！');
                 //token进行登录验证，localStorage是持久的,sessionSotorage是会话期间
                 this.$message.success('登陆成功');
-                window.sessionStorage.setItem('token',res.token);
+                window.sessionStorage.setItem('token',res.data.token);
                 //编程式路由导向 导向 http://localhost:8000/home页面
                 //router.push() 提供了path,params会被忽略;可以手写name或者带参数的path
                 this.$router.push('/home');
