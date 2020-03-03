@@ -11,6 +11,7 @@ import '@/assets/css/global.css'
 //导入字体图标
 import '@/assets/fonts/iconfont.css'
 
+import TreeTable from 'vue-table-with-tree-grid'
 
 Vue.use(ElementUI)
 
@@ -29,6 +30,10 @@ axios.interceptors.request.use(config=>{
 Vue.prototype.$http=axios
 
 Vue.config.productionTip = false
+
+Vue.component('tree-table', TreeTable)
+
+//注册全局可用组件
 
 /* eslint-disable no-new */
 new Vue({
