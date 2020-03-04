@@ -236,7 +236,7 @@ export default {
             // console.log(this.addCateForm);
             this.$refs.addCateFormRef.validate(async valid=>{
                 if(!valid) return this.$message.info('请输入合适的分类信息!');
-                 const {data:res}=await this.$http.post('categories',{cat_pid:this.addCateForm.cat_pid,cat_name:this.addCateForm.cat_name,cat_level:this.addCateForm.cat_level});
+                 const {data:res}=await this.$http.post('categories',{cat_id:this.addCateForm.cat_pid,cat_name:this.addCateForm.cat_name,cat_level:this.addCateForm.cat_level});
                 if(res.meta.status !== 201) return this.$message.error('添加分类失败!');
                 this.getCateList();
                 this.$message.success('添加分类信息成功!');
