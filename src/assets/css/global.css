@@ -22,3 +22,17 @@ html,body,#app{
 .el-form-item{
     margin-bottom:30px;
 }
+.el-steps{
+    margin:15px 0;
+}
+.el-step__title{
+    /* 文本字体 */
+    font-size:13px;
+}
+.el-checkbox{
+    margin:0 5px 0 0 !important;
+}
+/* 富文本编辑器最小高度 */
+.ql-editor{
+    min-height: 500px;
+}
